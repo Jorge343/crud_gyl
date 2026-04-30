@@ -1,6 +1,6 @@
 package com.gyl.CrudGyl.dto;
 
-public record ProductResponseDto(
+public record ProductoResponseDto(
         Long id,
         String nombre,
         Double precio,

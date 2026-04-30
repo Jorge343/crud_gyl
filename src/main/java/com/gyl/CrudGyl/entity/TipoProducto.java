@@ -8,25 +8,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="productos")
+@Table(name="tipo_producto")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Producto {
+public class TipoProducto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long producto_id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long tipo_id;
 
-    @Column(nullable=false, length = 100)
+    @Column(nullable=false, length = 50)
     private String nombre;
 
     @Column(nullable=false)
-    private Double precio;
-
-    @Column(nullable=false)
-    private Integer stock;
-
+    private String descripcion;
 
 }

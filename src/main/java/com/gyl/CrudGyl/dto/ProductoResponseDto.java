@@ -4,6 +4,7 @@ public record ProductoResponseDto(
         Long id,
         String nombre,
         Double precio,
-        Integer stock
+        Integer stock,
+        Boolean vigente
 ) {
 }

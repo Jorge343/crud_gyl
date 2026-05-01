@@ -25,4 +25,7 @@ public class TipoProducto {
     @Column(nullable=false)
     private String descripcion;
 
+    @Column(nullable = false)
+    private Boolean vigente = true;
+
 }

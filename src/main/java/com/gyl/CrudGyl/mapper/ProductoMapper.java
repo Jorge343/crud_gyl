@@ -22,7 +22,8 @@ public class ProductoMapper {
                 producto.getProducto_id(),
                 producto.getNombre(),
                 producto.getPrecio(),
-                producto.getStock()
+                producto.getStock(),
+                producto.getVigente()
         );
     }
 

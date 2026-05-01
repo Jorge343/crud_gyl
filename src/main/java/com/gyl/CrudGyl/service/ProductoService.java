@@ -2,6 +2,7 @@ package com.gyl.CrudGyl.service;
 
 import com.gyl.CrudGyl.dto.ProductoResponseDto;
 import com.gyl.CrudGyl.dto.ProductoRequestDto;
+import com.gyl.CrudGyl.dto.TipoProductoResponseDto;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface ProductoService {
    void eliminar(Long id);
 
    List<ProductoResponseDto> busquedaNombre(String nombre);
+
+   List<ProductoResponseDto> busquedaNoVigente(Boolean vigente);
 }

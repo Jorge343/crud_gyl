@@ -2,9 +2,11 @@ package com.gyl.CrudGyl.service.impl;
 
 import com.gyl.CrudGyl.dto.ProductoResponseDto;
 import com.gyl.CrudGyl.dto.ProductoRequestDto;
+import com.gyl.CrudGyl.dto.TipoProductoResponseDto;
 import com.gyl.CrudGyl.entity.Producto;
 import com.gyl.CrudGyl.exception.RecursosNoEncontradoException;
 import com.gyl.CrudGyl.mapper.ProductoMapper;
+import com.gyl.CrudGyl.mapper.TipoProductoMapper;
 import com.gyl.CrudGyl.repository.ProductoRepository;
 import com.gyl.CrudGyl.service.ProductoService;
 import org.springframework.stereotype.Service;
@@ -75,5 +77,12 @@ public class ProductoServiceImpl implements ProductoService {
                         "No se encontro el id " + id
                 ));
         productoRepository.delete(producto);
+    }
+
+    @Override
+    public List<ProductoResponseDto> busquedaNoVigente(Boolean vigente) {
+        return productoRepository.findByVigente(!vigente).stream()
+                .map(ProductoMapper::toResponseDto).toList();
+
     }
 }

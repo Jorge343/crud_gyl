@@ -28,5 +28,8 @@ public class Producto {
     @Column(nullable=false)
     private Integer stock;
 
+    @Column(nullable = false)
+    private Boolean vigente = true;
+
 
 }

@@ -43,4 +43,6 @@ public class ProductoController {
     @GetMapping("/{id}")
     public ProductoResponseDto buscarPorId (@PathVariable Long id){return productoService.buscarPorId(id);}
 
+    @GetMapping("/buscareliminado/{vigente}")
+    public List<ProductoResponseDto> busquedaNoVigente (@PathVariable Boolean vigente) {return productoService.busquedaNoVigente(vigente);}
 }

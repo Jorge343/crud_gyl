@@ -1,7 +1,5 @@
 package com.gyl.CrudGyl.service;
 
-import com.gyl.CrudGyl.dto.ProductoRequestDto;
-import com.gyl.CrudGyl.dto.ProductoResponseDto;
 import com.gyl.CrudGyl.dto.TipoProductoRequestDto;
 import com.gyl.CrudGyl.dto.TipoProductoResponseDto;
 

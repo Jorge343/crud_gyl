@@ -14,6 +14,7 @@ public class ProductoMapper {
         producto.setNombre(dto.nombre());
         producto.setPrecio(dto.precio());
         producto.setStock(dto.stock());
+
         return producto;
     }
 
@@ -23,7 +24,8 @@ public class ProductoMapper {
                 producto.getNombre(),
                 producto.getPrecio(),
                 producto.getStock(),
-                producto.getVigente()
+                producto.getVigente(),
+                producto.getTipoProducto().getNombre()
         );
     }
 

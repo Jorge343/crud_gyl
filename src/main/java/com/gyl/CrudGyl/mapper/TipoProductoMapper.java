@@ -13,6 +13,7 @@ public class TipoProductoMapper {
     public static TipoProducto toEntity(TipoProductoRequestDto dto){
         TipoProducto tipoProducto = new TipoProducto();
         tipoProducto.setNombre(dto.nombre());
+        tipoProducto.setDescripcion(dto.descripcion());
         return tipoProducto;
     }
 

@@ -31,5 +31,9 @@ public class Producto {
     @Column(nullable = false)
     private Boolean vigente = true;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tipo_id")
+    private TipoProducto tipoProducto;
+
 
 }

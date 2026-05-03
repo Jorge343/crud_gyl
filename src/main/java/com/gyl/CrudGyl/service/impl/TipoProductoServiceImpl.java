@@ -10,9 +10,11 @@ import com.gyl.CrudGyl.mapper.TipoProductoMapper;
 import com.gyl.CrudGyl.repository.ProductoRepository;
 import com.gyl.CrudGyl.repository.TipoProductoRepository;
 import com.gyl.CrudGyl.service.TipoProductoService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TipoProductoServiceImpl implements TipoProductoService {
 
     private TipoProductoRepository tipoProductoRepository;
@@ -76,7 +78,7 @@ public class TipoProductoServiceImpl implements TipoProductoService {
 
     @Override
     public List<TipoProductoResponseDto> busquedaNoVigente(Boolean vigente) {
-            return tipoProductoRepository.findByVigente(!vigente).stream()
+            return tipoProductoRepository.findByVigente(vigente).stream()
                     .map(TipoProductoMapper::toResponseDto).toList();
     }
 }

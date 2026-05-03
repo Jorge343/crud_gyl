@@ -5,6 +5,7 @@ public record ProductoResponseDto(
         String nombre,
         Double precio,
         Integer stock,
-        Boolean vigente
+        Boolean vigente,
+        String categoria
 ) {
 }

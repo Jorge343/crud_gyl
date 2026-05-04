@@ -30,4 +30,7 @@ public class Venta {
     @JoinColumn( nullable = false)
     private Cliente cliente;
 
+    @Column(nullable = false)
+    private Boolean vigente = true;
+
 }

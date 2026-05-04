@@ -7,6 +7,7 @@ public record VentaResponseDto(
         LocalDateTime fecha_venta,
         Double total,
         String nombreCliente,
-        String apellidoCliente
+        String apellidoCliente,
+        Boolean vigente
 ) {
 }

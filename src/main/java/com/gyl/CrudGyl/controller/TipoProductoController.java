@@ -47,7 +47,7 @@ public class TipoProductoController {
     @GetMapping("/{id}")
     public TipoProductoResponseDto buscarPorId (@PathVariable Long id){return tipoProductoService.buscarPorId(id);}
 
-    @GetMapping("/buscareliminado/{vigente}")
-    public List<TipoProductoResponseDto> busquedaNoVigente (@PathVariable Boolean vigente) {return tipoProductoService.busquedaNoVigente(vigente);}
+    @GetMapping("/buscarvigente/{vigente}")
+    public List<TipoProductoResponseDto> busquedaVigente (@PathVariable Boolean vigente) {return tipoProductoService.busquedaVigente(vigente);}
 
 }

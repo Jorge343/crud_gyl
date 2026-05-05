@@ -16,4 +16,6 @@ public interface VentaService {
 
     void eliminar(Long id);
 
+    List<VentaResponseDto> busquedaVigente(Boolean vigente);
+
 }

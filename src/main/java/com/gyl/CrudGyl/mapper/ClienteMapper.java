@@ -24,7 +24,7 @@ public class ClienteMapper {
 
     public static ClienteResponseDto toResponseDto(Cliente cliente){
         return new ClienteResponseDto(
-                cliente.getCliente_id(),
+                cliente.getIdCliente(),
                 cliente.getNombre(),
                 cliente.getApellido(),
                 cliente.getCorreo(),

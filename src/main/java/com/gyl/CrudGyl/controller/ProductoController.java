@@ -31,18 +31,28 @@ public class ProductoController {
     }
 
     @GetMapping("/buscar/{nombre}")
-    public List<ProductoResponseDto> busquedaNombre(@PathVariable String nombre) { return productoService.busquedaNombre(nombre); }
+    public List<ProductoResponseDto> busquedaNombre(@PathVariable String nombre) {
+        return productoService.busquedaNombre(nombre);
+    }
 
-    @DeleteMapping("/{id}")
-    public void eliminar (@PathVariable Long id) { productoService.eliminar(id);}
+    @PatchMapping("/{id}")
+    public void eliminar (@PathVariable Long id) {
+        productoService.eliminar(id);
+    }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ProductoResponseDto actualizar (@PathVariable  Long id, @RequestBody ProductoRequestDto dto) { return productoService.actualizar(id, dto);}
+    public ProductoResponseDto actualizar (@PathVariable  Long id, @RequestBody ProductoRequestDto dto) {
+        return productoService.actualizar(id, dto);
+    }
 
     @GetMapping("/{id}")
-    public ProductoResponseDto buscarPorId (@PathVariable Long id){return productoService.buscarPorId(id);}
+    public ProductoResponseDto buscarPorId (@PathVariable Long id){
+        return productoService.buscarPorId(id);
+    }
 
-    @GetMapping("/buscareliminado/{vigente}")
-    public List<ProductoResponseDto> busquedaNoVigente (@PathVariable Boolean vigente) {return productoService.busquedaNoVigente(vigente);}
+    @GetMapping("/buscarvigente/{vigente}")
+    public List<ProductoResponseDto> busquedaVigente (@PathVariable Boolean vigente) {
+        return productoService.busquedaVigente(vigente);
+    }
 }

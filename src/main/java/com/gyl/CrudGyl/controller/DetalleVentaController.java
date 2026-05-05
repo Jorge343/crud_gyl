@@ -30,4 +30,15 @@ public class DetalleVentaController {
     public List<DetalleVentaResponseDto> listarPorVenta(@PathVariable Long id){
         return detalleVentaService.listarPorVenta(id);
     }
+
+    @GetMapping("/buscarvigente/{vigente}")
+    public List<DetalleVentaResponseDto> busquedaVigente(@PathVariable Boolean vigente){
+        return detalleVentaService.busquedaVigente(vigente);
+    }
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void eliminar (@PathVariable Long id){
+         detalleVentaService.eliminar(id);
+    }
 }

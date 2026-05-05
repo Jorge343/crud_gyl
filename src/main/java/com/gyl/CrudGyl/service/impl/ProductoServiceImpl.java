@@ -11,6 +11,7 @@ import com.gyl.CrudGyl.mapper.TipoProductoMapper;
 import com.gyl.CrudGyl.repository.ProductoRepository;
 import com.gyl.CrudGyl.repository.TipoProductoRepository;
 import com.gyl.CrudGyl.service.ProductoService;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -83,11 +84,13 @@ public class ProductoServiceImpl implements ProductoService {
                 .orElseThrow(()-> new RecursosNoEncontradoException(
                         "No se encontro el id " + id
                 ));
-        productoRepository.delete(producto);
+        producto.setVigente(false);
+        productoRepository.save(producto);
     }
 
+
     @Override
-    public List<ProductoResponseDto> busquedaNoVigente(Boolean vigente) {
+    public List<ProductoResponseDto> busquedaVigente(Boolean vigente) {
         return productoRepository.findByVigente(vigente).stream()
                 .map(ProductoMapper::toResponseDto).toList();
 

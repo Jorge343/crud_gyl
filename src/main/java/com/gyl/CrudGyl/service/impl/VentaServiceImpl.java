@@ -64,4 +64,12 @@ public class VentaServiceImpl implements VentaService {
         venta.setVigente(false);
         ventaRepository.save(venta);
     }
+
+    @Override
+    public List<VentaResponseDto> busquedaVigente(Boolean vigente) {
+        return ventaRepository.findByVigente(vigente)
+                .stream()
+                .map(VentaMapper::toResponseDto)
+                .toList();
+    }
 }

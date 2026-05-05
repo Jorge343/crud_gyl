@@ -18,4 +18,8 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
     List<Cliente> findByVigente(Boolean vigente);
 
+    Boolean existsByCorreo(String correo);
+
+    Boolean existsByTelefono(String telefono);
+
 }

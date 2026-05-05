@@ -39,4 +39,9 @@ public class VentaController {
     public void eliminar(@PathVariable Long id){
         ventaService.eliminar(id);
     }
+
+    @GetMapping("/buscarvigente/{vigente}")
+    public List<VentaResponseDto> busquedaVigente(@PathVariable Boolean vigente){
+        return ventaService.busquedaVigente(vigente);
+    }
 }

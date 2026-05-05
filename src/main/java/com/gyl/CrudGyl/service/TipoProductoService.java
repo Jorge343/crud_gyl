@@ -19,6 +19,6 @@ public interface TipoProductoService {
 
     List<TipoProductoResponseDto> busquedaNombre(String nombre);
 
-    List<TipoProductoResponseDto> busquedaNoVigente(Boolean vigente);
+    List<TipoProductoResponseDto> busquedaVigente(Boolean vigente);
 
 }

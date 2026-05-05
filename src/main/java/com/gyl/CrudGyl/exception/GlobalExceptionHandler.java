@@ -19,9 +19,25 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(StockInsuficienteException.class)
-    public ResponseEntity<Map<String, String>> manejarRuntimeException(RuntimeException ex) {
+    public ResponseEntity<Map<String, String>> manejarStockInsuficiente(RuntimeException ex) {
         Map<String, String> error = new HashMap<>();
         error.put("error", "Error en la operación: " + ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(RecursoNoVigenteException.class)
+    public ResponseEntity<Map<String, String>> manejarRecursoNoVigente(RuntimeException ex) {
+        Map<String, String> error = new HashMap<>();
+        error.put("error", "Error en la operación: " + ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(RecursoUnicoYaExistenteException.class)
+    public ResponseEntity<Map<String, String>> manejarRecursoYaExistente(RuntimeException ex) {
+        Map<String, String> error = new HashMap<>();
+        error.put("error", "Error en la operación: " + ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+
 }

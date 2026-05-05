@@ -52,9 +52,9 @@ public class ClienteController {
         return clienteService.buscarPorId(id);
     }
 
-    @GetMapping("/vigencia/{vigente}")
-    public List<ClienteResponseDto> busquedaNoVigente (@PathVariable Boolean vigente) {
-        return clienteService.busquedaNoVigente(vigente);
+    @GetMapping("/buscarvigente/{vigente}")
+    public List<ClienteResponseDto> busquedaVigente (@PathVariable Boolean vigente) {
+        return clienteService.busquedaVigente(vigente);
     }
 
     @GetMapping("/buscarN/{nombre}")

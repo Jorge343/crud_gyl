@@ -6,6 +6,7 @@ public record DetalleVentaResponseDto(
         String nombreProducto,
         Integer cantidad,
         Double precioUnitario,
-        Double subtotal
+        Double subtotal,
+        Boolean vigente
 ) {
 }

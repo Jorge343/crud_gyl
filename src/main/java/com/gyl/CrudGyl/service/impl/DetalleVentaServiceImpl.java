@@ -2,9 +2,11 @@ package com.gyl.CrudGyl.service.impl;
 
 import com.gyl.CrudGyl.dto.DetalleVentaRequestDto;
 import com.gyl.CrudGyl.dto.DetalleVentaResponseDto;
+import com.gyl.CrudGyl.dto.ProductoResponseDto;
 import com.gyl.CrudGyl.entity.DetalleVenta;
 import com.gyl.CrudGyl.entity.Producto;
 import com.gyl.CrudGyl.entity.Venta;
+import com.gyl.CrudGyl.exception.RecursoNoVigenteException;
 import com.gyl.CrudGyl.exception.RecursosNoEncontradoException;
 import com.gyl.CrudGyl.exception.StockInsuficienteException;
 import com.gyl.CrudGyl.mapper.DetalleVentaMapper;
@@ -39,6 +41,9 @@ public class DetalleVentaServiceImpl implements DetalleVentaService {
         Producto producto = productoRepository.findById(dto.producto_id()).
                 orElseThrow(() -> new RecursosNoEncontradoException("Producto no encontrado"));
 
+        if (!(producto.getVigente()) || !(venta.getVigente()))
+            throw new RecursoNoVigenteException("Recurso se encuentra deshabilitado");
+
         if(producto.getStock() < dto.cantidad())
             throw new StockInsuficienteException("No hay stock suficiente para el pedido");
 
@@ -68,5 +73,20 @@ public class DetalleVentaServiceImpl implements DetalleVentaService {
                 stream().
                 map(DetalleVentaMapper::toResponseDto).
                 toList();
+    }
+
+    @Override
+    public List<DetalleVentaResponseDto> busquedaVigente(Boolean vigente) {
+            return detalleVentaRepository.findByVigente(vigente).stream()
+                    .map(DetalleVentaMapper::toResponseDto)
+                    .toList();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        DetalleVenta detalleVenta = detalleVentaRepository.findById(id)
+                .orElseThrow(() -> new RecursosNoEncontradoException("No se encontro la ID"));
+        detalleVenta.setVigente(false);
+        detalleVentaRepository.save(detalleVenta);
     }
 }

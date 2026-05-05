@@ -34,4 +34,7 @@ public class DetalleVenta {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "producto_id", nullable = false)
     private Producto producto;
+
+    @Column(nullable = false)
+    private Boolean vigente = true;
 }

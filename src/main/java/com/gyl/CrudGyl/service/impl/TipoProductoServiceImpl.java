@@ -77,7 +77,7 @@ public class TipoProductoServiceImpl implements TipoProductoService {
     }
 
     @Override
-    public List<TipoProductoResponseDto> busquedaNoVigente(Boolean vigente) {
+    public List<TipoProductoResponseDto> busquedaVigente(Boolean vigente) {
             return tipoProductoRepository.findByVigente(vigente).stream()
                     .map(TipoProductoMapper::toResponseDto).toList();
     }

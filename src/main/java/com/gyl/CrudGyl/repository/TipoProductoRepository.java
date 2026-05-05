@@ -11,6 +11,7 @@ import java.util.List;
 public interface TipoProductoRepository extends JpaRepository<TipoProducto, Long> {
 
     List<TipoProducto> findByNombre(String nombre);
+
     List<TipoProducto> findByVigente(Boolean vigente);
 
 }

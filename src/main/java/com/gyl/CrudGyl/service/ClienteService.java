@@ -19,7 +19,7 @@ public interface ClienteService {
 
     List<ClienteResponseDto> busquedaApellido(String apellido);
 
-    List<ClienteResponseDto> busquedaNoVigente(Boolean vigente);
+    List<ClienteResponseDto> busquedaVigente(Boolean vigente);
 
     List<ClienteResponseDto> busquedaNombre(String nombre);
 }

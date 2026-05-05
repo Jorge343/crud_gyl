@@ -3,7 +3,7 @@ package com.gyl.CrudGyl.dto;
 import java.time.LocalDateTime;
 
 public record VentaResponseDto(
-        Long venta_id,
+        Long idVenta,
         LocalDateTime fecha_venta,
         Double total,
         String nombreCliente,

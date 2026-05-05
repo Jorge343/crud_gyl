@@ -18,7 +18,7 @@ public class VentaMapper {
 
     public static VentaResponseDto toResponseDto(Venta venta) {
         return new VentaResponseDto(
-                venta.getVenta_id(),
+                venta.getIdVenta(),
                 venta.getFecha_venta(),
                 venta.getTotal(),
                 venta.getCliente().getNombre(),

@@ -1,0 +1,11 @@
+package com.gyl.CrudGyl.dto;
+
+public record DetalleVentaResponseDto(
+        Long idDetalleVenta,
+        Long idVenta,
+        String nombreProducto,
+        Integer cantidad,
+        Double precioUnitario,
+        Double subtotal
+) {
+}

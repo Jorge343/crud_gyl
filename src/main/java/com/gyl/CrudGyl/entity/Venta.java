@@ -18,7 +18,7 @@ public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long venta_id;
+    private Long idVenta;
 
     @Column( nullable = false)
     private LocalDateTime fecha_venta;

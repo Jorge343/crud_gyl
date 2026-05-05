@@ -1,10 +1,8 @@
 package com.gyl.CrudGyl.controller;
 
-import com.gyl.CrudGyl.dto.ProductResponseDto;
+import com.gyl.CrudGyl.dto.ProductoResponseDto;
 import com.gyl.CrudGyl.dto.ProductoRequestDto;
-import com.gyl.CrudGyl.entity.Producto;
 import com.gyl.CrudGyl.service.ProductoService;
-import jakarta.persistence.SqlResultSetMapping;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -23,26 +21,38 @@ public class ProductoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductResponseDto crear(@Valid @RequestBody ProductoRequestDto dto) {
+    public ProductoResponseDto crear(@Valid @RequestBody ProductoRequestDto dto) {
         return productoService.crear(dto);
     }
 
     @GetMapping
-    public List<ProductResponseDto> listar(){
+    public List<ProductoResponseDto> listar(){
         return productoService.listar();
     }
 
     @GetMapping("/buscar/{nombre}")
-    public List<ProductResponseDto> busquedaNombre(@PathVariable String nombre) { return productoService.busquedaNombre(nombre); }
+    public List<ProductoResponseDto> busquedaNombre(@PathVariable String nombre) {
+        return productoService.busquedaNombre(nombre);
+    }
 
-    @DeleteMapping("/{id}")
-    public void eliminar (@PathVariable Long id) { productoService.eliminar(id);}
+    @PatchMapping("/{id}")
+    public void eliminar (@PathVariable Long id) {
+        productoService.eliminar(id);
+    }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ProductResponseDto actualizar (@PathVariable  Long id, @RequestBody ProductoRequestDto dto) { return productoService.actualizar(id, dto);}
+    public ProductoResponseDto actualizar (@PathVariable  Long id, @RequestBody ProductoRequestDto dto) {
+        return productoService.actualizar(id, dto);
+    }
 
     @GetMapping("/{id}")
-    public ProductResponseDto buscarPorId (@PathVariable Long id){return productoService.buscarPorId(id);}
+    public ProductoResponseDto buscarPorId (@PathVariable Long id){
+        return productoService.buscarPorId(id);
+    }
 
+    @GetMapping("/buscarvigente/{vigente}")
+    public List<ProductoResponseDto> busquedaVigente (@PathVariable Boolean vigente) {
+        return productoService.busquedaVigente(vigente);
+    }
 }

@@ -1,6 +1,6 @@
 package com.gyl.CrudGyl.mapper;
 
-import com.gyl.CrudGyl.dto.ProductResponseDto;
+import com.gyl.CrudGyl.dto.ProductoResponseDto;
 import com.gyl.CrudGyl.dto.ProductoRequestDto;
 import com.gyl.CrudGyl.entity.Producto;
 
@@ -14,15 +14,18 @@ public class ProductoMapper {
         producto.setNombre(dto.nombre());
         producto.setPrecio(dto.precio());
         producto.setStock(dto.stock());
+
         return producto;
     }
 
-    public static ProductResponseDto toResponseDto(Producto producto){
-        return new ProductResponseDto(
-                producto.getId(),
+    public static ProductoResponseDto toResponseDto(Producto producto){
+        return new ProductoResponseDto(
+                producto.getProducto_id(),
                 producto.getNombre(),
                 producto.getPrecio(),
-                producto.getStock()
+                producto.getStock(),
+                producto.getVigente(),
+                producto.getTipoProducto().getNombre()
         );
     }
 

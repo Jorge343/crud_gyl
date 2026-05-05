@@ -16,8 +16,8 @@ import lombok.Setter;
 public class Producto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long producto_id;
 
     @Column(nullable=false, length = 100)
     private String nombre;
@@ -27,6 +27,13 @@ public class Producto {
 
     @Column(nullable=false)
     private Integer stock;
+
+    @Column(nullable = false)
+    private Boolean vigente = true;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tipo_id")
+    private TipoProducto tipoProducto;
 
 
 }

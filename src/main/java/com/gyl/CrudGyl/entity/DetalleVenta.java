@@ -28,7 +28,7 @@ public class DetalleVenta {
     private Double subtotal;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "venta_id", nullable = false)
+    @JoinColumn(name = "id_venta", nullable = false)
     private Venta venta;
 
     @ManyToOne(fetch = FetchType.LAZY)

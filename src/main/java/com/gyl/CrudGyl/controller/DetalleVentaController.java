@@ -27,7 +27,7 @@ public class DetalleVentaController {
     }
 
     @GetMapping("/{id}")
-    public List<DetalleVentaResponseDto> listarPorVenta(@PathVariable Long idVenta){
-        return detalleVentaService.listarPorVenta(idVenta);
+    public List<DetalleVentaResponseDto> listarPorVenta(@PathVariable Long id){
+        return detalleVentaService.listarPorVenta(id);
     }
 }

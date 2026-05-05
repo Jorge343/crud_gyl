@@ -6,6 +6,7 @@ import com.gyl.CrudGyl.entity.DetalleVenta;
 import com.gyl.CrudGyl.entity.Producto;
 import com.gyl.CrudGyl.entity.Venta;
 import com.gyl.CrudGyl.exception.RecursosNoEncontradoException;
+import com.gyl.CrudGyl.exception.StockInsuficienteException;
 import com.gyl.CrudGyl.mapper.DetalleVentaMapper;
 import com.gyl.CrudGyl.repository.DetalleVentaRepository;
 import com.gyl.CrudGyl.repository.ProductoRepository;
@@ -39,7 +40,7 @@ public class DetalleVentaServiceImpl implements DetalleVentaService {
                 orElseThrow(() -> new RecursosNoEncontradoException("Producto no encontrado"));
 
         if(producto.getStock() < dto.cantidad())
-            throw new RuntimeException("No hay suficiente stock");
+            throw new StockInsuficienteException("No hay stock suficiente para el pedido");
 
         double subtotal = producto.getPrecio() * dto.cantidad();
         DetalleVenta detalleVenta = DetalleVentaMapper.toEntity(dto);

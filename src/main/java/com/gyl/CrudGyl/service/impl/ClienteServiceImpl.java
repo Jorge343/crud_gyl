@@ -1,7 +1,7 @@
 package com.gyl.CrudGyl.service.impl;
 
-import com.gyl.CrudGyl.dto.ClienteRequestDto;
-import com.gyl.CrudGyl.dto.ClienteResponseDto;
+import com.gyl.CrudGyl.dto.request.ClienteRequestDto;
+import com.gyl.CrudGyl.dto.response.ClienteResponseDto;
 import com.gyl.CrudGyl.entity.Cliente;
 import com.gyl.CrudGyl.exception.RecursoUnicoYaExistenteException;
 import com.gyl.CrudGyl.exception.RecursosNoEncontradoException;
@@ -24,10 +24,10 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public ClienteResponseDto crear(ClienteRequestDto dto) {
 
-        if (clienteRepository.existsByCorreo(dto.correo()))
+        if (!(clienteRepository.findByCorreo(dto.correo()).isEmpty()))
             throw new RecursoUnicoYaExistenteException("El email ingresado ya existe");
 
-        if (clienteRepository.existsByTelefono(dto.telefono()))
+        if (!(clienteRepository.findByTelefono(dto.telefono()).isEmpty()))
             throw new RecursoUnicoYaExistenteException("El telefono ingresado ya existe");
 
         Cliente cliente = ClienteMapper.toEntity(dto);

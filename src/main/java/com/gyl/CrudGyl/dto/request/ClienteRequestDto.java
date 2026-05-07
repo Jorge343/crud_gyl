@@ -1,8 +1,8 @@
-package com.gyl.CrudGyl.dto;
+package com.gyl.CrudGyl.dto.request;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public record ClienteRequestDto(
@@ -18,7 +18,7 @@ public record ClienteRequestDto(
         @Email(message = "El formato del correo no es válido")
         String correo,
 
-        @Size(max = 20, message = "El teléfono es demasiado largo")
+        @Pattern(regexp = "^\\d{8}$", message = "Numero de telefono invalido")
         String telefono,
 
         @Size(max = 100, message = "La dirección es demasiado larga")

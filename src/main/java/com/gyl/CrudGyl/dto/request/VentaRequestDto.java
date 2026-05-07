@@ -1,8 +1,6 @@
-package com.gyl.CrudGyl.dto;
+package com.gyl.CrudGyl.dto.request;
 
 import jakarta.validation.constraints.NotNull;
-
-import java.time.LocalDateTime;
 
 public record VentaRequestDto(
         @NotNull(message = "El ID del cliente es obligatorio")

@@ -1,17 +1,14 @@
 package com.gyl.CrudGyl.service.impl;
 
-import com.gyl.CrudGyl.dto.ProductoResponseDto;
-import com.gyl.CrudGyl.dto.ProductoRequestDto;
-import com.gyl.CrudGyl.dto.TipoProductoResponseDto;
+import com.gyl.CrudGyl.dto.response.ProductoResponseDto;
+import com.gyl.CrudGyl.dto.request.ProductoRequestDto;
 import com.gyl.CrudGyl.entity.Producto;
 import com.gyl.CrudGyl.entity.TipoProducto;
 import com.gyl.CrudGyl.exception.RecursosNoEncontradoException;
 import com.gyl.CrudGyl.mapper.ProductoMapper;
-import com.gyl.CrudGyl.mapper.TipoProductoMapper;
 import com.gyl.CrudGyl.repository.ProductoRepository;
 import com.gyl.CrudGyl.repository.TipoProductoRepository;
 import com.gyl.CrudGyl.service.ProductoService;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

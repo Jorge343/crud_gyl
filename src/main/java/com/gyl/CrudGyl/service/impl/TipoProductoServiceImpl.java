@@ -57,13 +57,14 @@ public class TipoProductoServiceImpl implements TipoProductoService {
     }
 
     @Override
-    public void eliminar(Long id) {
+    public TipoProductoResponseDto eliminar(Long id) {
         TipoProducto tipoProducto  = tipoProductoRepository.findById(id)
                 .orElseThrow(()-> new RecursosNoEncontradoException(
                         "No se encontro el id " + id
                 ));
         tipoProducto.setVigente(false);
         tipoProductoRepository.save(tipoProducto);
+        return TipoProductoMapper.toResponseDto(tipoProducto);
     }
 
     @Override

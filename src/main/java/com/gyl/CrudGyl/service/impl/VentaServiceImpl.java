@@ -55,13 +55,15 @@ public class VentaServiceImpl implements VentaService {
     }
 
     @Override
-    public void eliminar(Long id){
+    public VentaResponseDto eliminar(Long id){
         Venta venta  = ventaRepository.findById(id)
                 .orElseThrow(()-> new RecursosNoEncontradoException(
                         "No se encontro el id " + id
                 ));
         venta.setVigente(false);
         ventaRepository.save(venta);
+
+        return VentaMapper.toResponseDto(venta);
     }
 
     @Override

@@ -23,7 +23,11 @@ public class VentaMapper {
                 venta.getTotal(),
                 venta.getCliente().getNombre(),
                 venta.getCliente().getApellido(),
-                venta.getVigente()
+                venta.getVigente(),
+                venta.getDetalles()
+                        .stream()
+                        .map(DetalleVentaMapper::toResponseDto)
+                        .toList()
         );
     }
 }

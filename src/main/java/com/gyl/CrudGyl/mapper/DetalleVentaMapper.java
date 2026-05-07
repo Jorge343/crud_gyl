@@ -17,7 +17,6 @@ public class DetalleVentaMapper {
     public static DetalleVentaResponseDto toResponseDto(DetalleVenta detalle) {
         return new DetalleVentaResponseDto(
                 detalle.getDetalleVenta_id(),
-                detalle.getVenta().getIdVenta(),
                 detalle.getProducto().getNombre(),
                 detalle.getCantidad(),
                 detalle.getPrecio_unitario(),

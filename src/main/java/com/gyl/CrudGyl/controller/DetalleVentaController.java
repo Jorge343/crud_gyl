@@ -38,7 +38,8 @@ public class DetalleVentaController {
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void eliminar (@PathVariable Long id){
-         detalleVentaService.eliminar(id);
+    public DetalleVentaResponseDto eliminar (@PathVariable Long id){
+
+        return detalleVentaService.eliminar(id);
     }
 }

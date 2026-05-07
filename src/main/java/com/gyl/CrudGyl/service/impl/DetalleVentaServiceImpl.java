@@ -1,6 +1,7 @@
 package com.gyl.CrudGyl.service.impl;
 
 import com.gyl.CrudGyl.dto.request.DetalleVentaRequestDto;
+import com.gyl.CrudGyl.dto.response.ClienteResponseDto;
 import com.gyl.CrudGyl.dto.response.DetalleVentaResponseDto;
 import com.gyl.CrudGyl.entity.DetalleVenta;
 import com.gyl.CrudGyl.entity.Producto;
@@ -82,10 +83,11 @@ public class DetalleVentaServiceImpl implements DetalleVentaService {
     }
 
     @Override
-    public void eliminar(Long id) {
+    public DetalleVentaResponseDto eliminar(Long id) {
         DetalleVenta detalleVenta = detalleVentaRepository.findById(id)
                 .orElseThrow(() -> new RecursosNoEncontradoException("No se encontro la ID"));
         detalleVenta.setVigente(false);
         detalleVentaRepository.save(detalleVenta);
+        return DetalleVentaMapper.toResponseDto(detalleVenta);
     }
 }

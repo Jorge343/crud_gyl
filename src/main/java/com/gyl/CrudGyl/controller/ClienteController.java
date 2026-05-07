@@ -37,8 +37,9 @@ public class ClienteController {
 
     @PutMapping("/eliminar/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void eliminar (@PathVariable Long id) {
-        clienteService.eliminar(id);
+    public ClienteResponseDto eliminar (@PathVariable Long id) {
+
+        return clienteService.eliminar(id);
     }
 
     @PutMapping("/{id}")

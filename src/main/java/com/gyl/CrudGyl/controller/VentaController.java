@@ -36,8 +36,9 @@ public class VentaController {
     }
 
     @PatchMapping("/{id}")
-    public void eliminar(@PathVariable Long id){
-        ventaService.eliminar(id);
+    public VentaResponseDto eliminar(@PathVariable Long id){
+
+        return ventaService.eliminar(id);
     }
 
     @GetMapping("/buscarvigente/{vigente}")

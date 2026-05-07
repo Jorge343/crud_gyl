@@ -1,6 +1,7 @@
 package com.gyl.CrudGyl.service;
 
 import com.gyl.CrudGyl.dto.request.VentaRequestDto;
+import com.gyl.CrudGyl.dto.response.ClienteResponseDto;
 import com.gyl.CrudGyl.dto.response.VentaResponseDto;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface VentaService {
 
     VentaResponseDto buscarPorId(Long id);
 
-    void eliminar(Long id);
+    VentaResponseDto eliminar(Long id);
 
     List<VentaResponseDto> busquedaVigente(Boolean vigente);
 

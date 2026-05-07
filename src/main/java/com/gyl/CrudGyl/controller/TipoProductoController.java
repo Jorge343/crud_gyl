@@ -35,7 +35,8 @@ public class TipoProductoController {
     public List<TipoProductoResponseDto> busquedaNombre(@PathVariable String nombre) { return tipoProductoService.busquedaNombre(nombre); }
 
     @PutMapping("/eliminar/{id}")
-    public void eliminar (@PathVariable Long id) { tipoProductoService.eliminar(id);}
+    public TipoProductoResponseDto eliminar (@PathVariable Long id) {
+        return tipoProductoService.eliminar(id);}
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

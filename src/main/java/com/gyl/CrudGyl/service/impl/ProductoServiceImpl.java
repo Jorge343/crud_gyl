@@ -76,13 +76,15 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public void eliminar(Long id) {
+    public ProductoResponseDto eliminar(Long id) {
         Producto producto  = productoRepository.findById(id)
                 .orElseThrow(()-> new RecursosNoEncontradoException(
                         "No se encontro el id " + id
                 ));
         producto.setVigente(false);
         productoRepository.save(producto);
+
+        return ProductoMapper.toResponseDto(producto);
     }
 
 

@@ -1,5 +1,6 @@
 package com.gyl.CrudGyl.service;
 
+import com.gyl.CrudGyl.dto.response.ClienteResponseDto;
 import com.gyl.CrudGyl.dto.response.ProductoResponseDto;
 import com.gyl.CrudGyl.dto.request.ProductoRequestDto;
 
@@ -15,7 +16,7 @@ public interface ProductoService {
 
    ProductoResponseDto actualizar(Long id, ProductoRequestDto dto);
 
-   void eliminar(Long id);
+   ProductoResponseDto eliminar(Long id);
 
    List<ProductoResponseDto> busquedaNombre(String nombre);
 

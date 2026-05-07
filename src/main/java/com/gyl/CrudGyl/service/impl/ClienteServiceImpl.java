@@ -65,7 +65,7 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public void eliminar(Long id) {
+    public ClienteResponseDto eliminar(Long id) {
         Cliente cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RecursosNoEncontradoException(
                         "No se encontró el Cliente con ID " + id
@@ -73,6 +73,7 @@ public class ClienteServiceImpl implements ClienteService {
 
         cliente.setVigente(false);
         clienteRepository.save(cliente);
+        return ClienteMapper.toResponseDto(cliente);
     }
 
     @Override

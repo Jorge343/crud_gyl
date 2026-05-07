@@ -1,6 +1,7 @@
 package com.gyl.CrudGyl.service;
 
 import com.gyl.CrudGyl.dto.request.DetalleVentaRequestDto;
+import com.gyl.CrudGyl.dto.response.ClienteResponseDto;
 import com.gyl.CrudGyl.dto.response.DetalleVentaResponseDto;
 
 import java.util.List;
@@ -14,5 +15,5 @@ public interface DetalleVentaService {
 
     List<DetalleVentaResponseDto> busquedaVigente(Boolean vigente);
 
-    void eliminar(Long id);
+    DetalleVentaResponseDto eliminar(Long id);
 }

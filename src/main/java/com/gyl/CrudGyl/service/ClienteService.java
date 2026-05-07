@@ -15,7 +15,7 @@ public interface ClienteService {
 
     ClienteResponseDto actualizar(Long id, ClienteRequestDto dto);
 
-    void eliminar(Long id);
+    ClienteResponseDto eliminar(Long id);
 
     List<ClienteResponseDto> busquedaApellido(String apellido);
 

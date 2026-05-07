@@ -27,6 +27,7 @@ public class ProductoController {
 
     @GetMapping
     public List<ProductoResponseDto> listar(){
+
         return productoService.listar();
     }
 
@@ -36,8 +37,8 @@ public class ProductoController {
     }
 
     @PatchMapping("/{id}")
-    public void eliminar (@PathVariable Long id) {
-        productoService.eliminar(id);
+    public ProductoResponseDto eliminar (@PathVariable Long id) {
+        return productoService.eliminar(id);
     }
 
     @PutMapping("/{id}")
